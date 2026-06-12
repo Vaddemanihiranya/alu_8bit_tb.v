@@ -1,38 +1,40 @@
-`timescale 1ns/1ps
+# RTL Design and Functional Simulation of 8-Bit ALU
 
-module alu_8bit_tb;
+## Project Overview
+This project implements an 8-bit Arithmetic Logic Unit (ALU) using Verilog HDL. The ALU performs arithmetic, logical, and shift operations based on a 3-bit select signal. Functional verification is performed using a Verilog testbench.
 
-reg [7:0] A, B;
-reg [2:0] Sel;
-wire [7:0] Result;
+## Features
+- Addition
+- Subtraction
+- AND Operation
+- OR Operation
+- XOR Operation
+- NOT Operation
+- Left Shift
+- Right Shift
 
-// Instantiate ALU
-alu_8bit uut (
-    .A(A),
-    .B(B),
-    .Sel(Sel),
-    .Result(Result)
-);
+## Files
+- `alu_8bit.v` – RTL design of the 8-bit ALU
+- `alu_8bit_tb.v` – Testbench for functional verification
+- `README.md` – Project documentation
 
-initial begin
-    A = 8'd10;
-    B = 8'd5;
+## Verification
+A testbench was developed to verify all ALU operations. Different input combinations were applied, and simulation results confirmed the correct functionality of the design.
 
-    Sel = 3'b000; #10; // Addition
-    Sel = 3'b001; #10; // Subtraction
-    Sel = 3'b010; #10; // AND
-    Sel = 3'b011; #10; // OR
-    Sel = 3'b100; #10; // XOR
-    Sel = 3'b101; #10; // NOT
-    Sel = 3'b110; #10; // Left Shift
-    Sel = 3'b111; #10; // Right Shift
+## Tools Used
+- Verilog HDL
+- ModelSim / Vivado Simulator
+- GTKWave
 
-    $finish;
-end
+## Learning Outcomes
+- RTL Design
+- Verilog Coding
+- Functional Verification
+- Testbench Development
+- Digital Logic Design
 
-initial begin
-    $monitor("Time=%0t A=%d B=%d Sel=%b Result=%d",
-             $time, A, B, Sel, Result);
-end
+## Author
+Hiranya Vaddemani
 
-endmodule
+## Internship Task
+RTL Design and Functional Simulation using Verilog HDL.
